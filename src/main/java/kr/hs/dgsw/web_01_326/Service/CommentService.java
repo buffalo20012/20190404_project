@@ -10,5 +10,6 @@ public interface CommentService {
     CommentUsernameProtocol AddComment(Comment comment);
     Comment FindComment(Long id);
     List<Comment> FindAll();
+    CommentUsernameProtocol UpdateComment(Long id, Comment comment);
     boolean DeleteComment(Long id);
 }

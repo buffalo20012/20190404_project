@@ -16,6 +16,16 @@ public class User {
     @GeneratedValue
     private Long id;
 
+    private String pw;
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
     private String username;
     private String email;
 
@@ -33,8 +43,6 @@ public class User {
     public User(String username, String email) {
         this.username = username;
         this.email = email;
-        //this.filepath = null;
-        //this.filename = null;
     }
 
     public String getFilepath() {

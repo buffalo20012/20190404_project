@@ -9,10 +9,11 @@ public interface UserService {
 
     User FindUser(Long id);
 
+    User FindUser(Long id,String pw);
+
     User AddUser(User user);
 
     User UpdateUser(Long id, User user);
 
     boolean DeleteUser(Long id);
-
 }

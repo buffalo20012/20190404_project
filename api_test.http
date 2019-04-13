@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/finduser/1
+GET http://localhost:8080/finduser/
 Accept: application/json
 
 ###
@@ -19,7 +19,8 @@ Content-Type: application/json
 
 {
   "username": "user111",
-  "email": "user111@dgsw"
+  "email": "user111@dgsw",
+  "pw": "111"
 }
 
 ###
@@ -27,13 +28,13 @@ PUT http://localhost:8080/updateuser/1
 Content-Type: application/json
 
 {
-  "filename": "AAA",
-  "filepath": "AAAAAAA"
+  "filename": "코카콜라.PNG",
+  "filepath": "D:/Web_Code/20190326/upload/0eaa9a5e-f39b-4759-9fc0-ea4e90b1bd33_코카콜라.PNG"
 }
 
 ###
 
-DELETE http://localhost:8080/deleteuser/5
+DELETE http://localhost:8080/deleteuser/65
 
 ###
 
@@ -58,5 +59,9 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:8080/deletecomment/16
+
+###
+
+GET http://localhost:8080/attachment/1
 
 ###

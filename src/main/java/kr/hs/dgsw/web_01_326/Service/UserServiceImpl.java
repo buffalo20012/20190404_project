@@ -30,10 +30,35 @@ public class UserServiceImpl implements UserService {
             user.setJoined(found.get().getJoined());
             user.setModified(found.get().getModified());
             user.setUsername(found.get().getUsername());
+            user.setFilepath(found.get().getFilepath());
+            user.setFilename(found.get().getFilename());
+            user.setPw(found.get().getPw());
         }
 
         return user;
     }
+
+    @Override
+    public User FindUser(Long id, String pw) {
+        User user = new User();
+        Optional<User> found = userRepository.findByIdAndPw(id,pw);
+
+        if (found.isPresent()) {
+            user.setEmail(found.get().getEmail());
+            user.setId(found.get().getId());
+            user.setJoined(found.get().getJoined());
+            user.setModified(found.get().getModified());
+            user.setUsername(found.get().getUsername());
+            user.setFilepath(found.get().getFilepath());
+            user.setFilename(found.get().getFilename());
+            user.setPw(found.get().getPw());
+        }else{
+            return null;
+        }
+
+        return user;
+    }
+
 
     @Override
     public User AddUser(User user) {

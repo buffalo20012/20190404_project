@@ -8,6 +8,7 @@ import kr.hs.dgsw.web_01_326.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,8 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public List<CommentUsernameProtocol> listAllComments() {
 
-        List<Comment> commentList = this.commentRepository.findAll();
+        //  List<Comment> commentList = this.commentRepository.findAll();
+        List<Comment> commentList = this.commentRepository.findAllByOrderByCreatedAsc();
         List<CommentUsernameProtocol> cupList = new ArrayList<>();
 
         commentList.forEach(comment -> {
@@ -55,6 +57,8 @@ public class CommentServiceImpl implements CommentService{
             comment.setId(found.get().getId());
             comment.setContent(found.get().getContent());
             comment.setUserId(found.get().getUserId());
+            comment.setFilename(found.get().getFilename());
+            comment.setFilepath(found.get().getFilepath());
             comment.setCreated(found.get().getCreated());
             comment.setModified(found.get().getModified());
         }
@@ -64,6 +68,11 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public List<Comment> FindAll() {
         return this.commentRepository.findAll();
+    }
+
+    @Override
+    public CommentUsernameProtocol UpdateComment(Long id, Comment comment) {
+        return null;
     }
 
     @Override

@@ -24,6 +24,15 @@ public class UserController {
         return this.userService.FindUser(Long.parseLong(id));
     }
 
+    @GetMapping("/finduser/{id}/{pw}")
+    public User findUser(@PathVariable String id, @PathVariable String pw) {
+        try{
+            return this.userService.FindUser(Long.parseLong(id), pw);
+        }catch (Exception e) {
+            return null;
+        }
+    }
+
     @PostMapping("/adduser")
     @ResponseBody
     public User add(@RequestBody User user) {
